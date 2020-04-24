@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Store } from "./components/store/global-state";
 
 const App: React.FC = ({}) => {
+	const { state } = useContext(Store);
 	return (
-		<p>Welcome!</p>
+		<h1>Welcome {state.userName}!</h1>
 	);
-}
+};
 
 export default App;
