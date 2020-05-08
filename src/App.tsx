@@ -1,10 +1,16 @@
-import React, { useContext } from 'react';
-import { Store } from "./components/store/global-state";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Welcome from "./pages/welcome";
+import Home from "./pages/home";
 
-const App: React.FC = ({}) => {
-	const { state } = useContext(Store);
+const App: React.FC = () => {
 	return (
-		<h1>Welcome {state.userName}!</h1>
+		<Router>
+			<Switch>
+				<Route exact path="/" component={Home}><Home /></Route>
+				<Route path="/welcome" component={Welcome}><Welcome /></Route>
+			</Switch>
+		</Router>
 	);
 };
 
